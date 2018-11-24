@@ -1,0 +1,10 @@
+# build a docker image (see Dockerfile and .dockerignore)
+docker build -t jena-text .
+# compile and install
+docker run -it -v ~/jenaText:/app jena-text mvn clean install
+# run indexer
+docker run -it -v ~/jenaText:/app jena-text java -cp target/jena-1.0-SNAPSHOT.jar:target/lib/* ai.laer.indexer.Main
+# run the query
+docker run -it -v ~/jenaText:/app jena-text java -cp target/jena-1.0-SNAPSHOT.jar:target/lib/* ai.laer.jena.text.App -Xmx8192m
+# this returns empty rules. WHY???
+# - not I think I changed all the directories in data correct to point to indexedFull

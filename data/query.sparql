@@ -1,0 +1,8 @@
+PREFIX text: <http://jena.apache.org/text#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+select distinct * where{
+?email text:query ("\"New Paths for New Stuff\"") .
+?person <http://laer.ai/enron/email/received> ?email .
+?person <http://laer.ai/enron/person/alias> "Geir" .
+}

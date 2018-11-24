@@ -1,0 +1,4 @@
+java -cp ../apache-jena-fuseki-3.9.0/fuseki-server.jar tdb.tdbloader --tdb=config.ttl ../jena-enron-example/triples_big.ttl
+
+//Running the server
+./fuseki-server --confg config.ttl
