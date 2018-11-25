@@ -1,0 +1,9 @@
+.idea
+*.iml
+target
+*.swp
+*.swj
+*.swo
+.DS_Store
+.classpath
+data
