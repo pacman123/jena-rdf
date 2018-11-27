@@ -44,13 +44,15 @@ text:TextIndexES    rdfs:subClassOf   text:TextIndex .
 
 # A TDB dataset used for RDF storage
 <#tdbDataset> rdf:type      tdb:DatasetTDB ;
-    tdb:location "./data/TDB" ; #tdb:unionDefaultGraph true ; # Optional
+    tdb:location "/Users/nishant_home/git/jena-rdf/data/TDB" ;
+    tdb:unionDefaultGraph true ; # Optional
     .
 
 # Text index description
 <#indexLucene> a text:TextIndexLucene ;
-    text:directory <file:./data/indexedFull> ;
+    text:directory <file:/Users/nishant_home/git/jena-rdf/data/indexedFull> ;
     text:entityMap <#entMap> ;
+    text:storeValues true ;
  .
 
 # Mapping in the index
@@ -65,3 +67,16 @@ text:TextIndexES    rdfs:subClassOf   text:TextIndex .
             text:predicate rdfs:label ]
         ) 
     .
+
+<#service_text_tdb> rdf:type fuseki:Service ;
+    rdfs:label                      "TDB/text service" ;
+    fuseki:name                     "ds" ;
+    fuseki:serviceQuery             "query" ;
+    fuseki:serviceQuery             "sparql" ;
+    fuseki:serviceUpdate            "update" ;
+    fuseki:serviceUpload            "upload" ;
+    fuseki:serviceReadGraphStore    "get" ;
+    fuseki:serviceReadWriteGraphStore    "data" ;
+    fuseki:dataset                  :text_dataset ;
+    .
+
